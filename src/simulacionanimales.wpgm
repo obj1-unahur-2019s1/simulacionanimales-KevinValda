@@ -12,10 +12,25 @@ program animales {
 
 	game.addVisual(animalActual)
 	
-	keyboard.c().onPressDo({animalActual.comer(15) })
+	keyboard.c().onPressDo({animalActual.comer(12) })
 	keyboard.p().onPressDo({game.say(animalActual, animalActual.peso().toString() )})
 	keyboard.b().onPressDo({animalActual.beber()})
 	keyboard.z().onPressDo({game.say(animalActual, if ( animalActual.tieneSed() ) { "tengo Sed"} else {"no tengo sed"} ) } )
+	
+	keyboard.up().onPressDo({animalActual.subir()})
+	keyboard.down().onPressDo({animalActual.bajar()})
+	keyboard.left().onPressDo({animalActual.izquierda()})
+	keyboard.right().onPressDo({animalActual.derecha()})
+	
+	keyboard.l().onPressDo({
+		game.removeVisual(animalActual)
+		animalActual = new Gallina ()
+		game.addVisual(animalActual)
+	})
+	
+	
+	
+	
 	/*
 	 * arrancamos el juego
 	 */
